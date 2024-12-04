@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Your Life in Weeks</title>
+    <style>
+      body{
+        background: #add8e6;
+        flex:auto;
+        justify-items: center;
+         font-family: "Lucida Console", "Courier New", monospace;
+      }
+      .container{
+       text-align: center;
+       border: solid black 2px;
+       border-radius: 3px;
+       margin: 100px auto;
+       background: #DAF7A6;
+       padding: 20px;
+       font-size: 20px;
+       overflow:initial;
+       border-radius: 15px;
+       }
+
+      input{
+       text-align: center;
+       height: 60px;
+       width: 190px;
+       border: none;
+       border-bottom: 2px solid silver;
+       }
+      .p2{
+       background-color: #4169E1;
+       width:fit-content;
+       color: #FFFAFA;
+       }
+      #output{
+        margin-left: 7%;
+       font-size: 30px; 
+       color: #F0FFFF;
+       background-color: #696969;
+       width:fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1 style="font-size: 65px;"> Your Life in Weeks</h1>
+      <p class="p2">“The past always looks better than it was. It’s only pleasant because it isn’t here.” – Finley Peter Dunne</p><br>
+      <!-- <label for="age1">Enter Your Age:</label> -->
+      <input type="number" id="age1" placeholder="Enter Your Age" required>
+      <button type="button" class="btn btn-outline-dark btn-lg" id="btn">Calculate</button>
+      <br><br>
+
+      <p class="p1" id="output"></p>
+
+
+    </div>
+
+    <script type="text/javascript">
+      const yourage = document.getElementById("age1");
+      const btn1 = document.getElementById("btn");
+      const out = document.getElementById("output");
+
+
+      function fun1(){
+        age = yourage.value;
+        var daysLeft, weeksLeft, monthsLeft;
+
+        daysLeft= (90 - age) * 365;
+        weeksLeft= (90 - age) * 52;
+        monthsLeft= (90 - age) * 12;
+
+        if(age >= 90){
+          alert("ded x_x");
+        }
+        else if (age === "") {
+          return 0;
+        }
+        else{ out.innerHTML = "You have " + daysLeft + " days, " + weeksLeft + " weeks, and " + monthsLeft + " months left.";
+      }
+       
+      }
+      btn1.addEventListener('click', fun1);
+      
+
+    </script>
+    <!-- <footer class="pt-5 my-5 text-muted">
+      Created by Gonzales, Edmar &copy; 2023-4eber
+    </footer> -->
+  </body>
+</html>

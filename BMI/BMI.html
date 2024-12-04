@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="icon.png">
+    <title>BMI</title>
+    <style>
+        
+     body{
+    background: #ADD8E6;
+    flex:auto;
+    justify-items: center;
+    }
+    .frm{
+    border: solid black 2px;
+    width: 30%;
+    border-radius: 3px;
+    margin: 100px auto;
+    background: #DAF7A6;
+    padding: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 20px;
+    overflow:initial;
+    border-radius: 15px;
+    }
+    @media (max-width: 500px) {
+  .frm{
+    width: fit-content;
+    height: fit-content;
+
+  }
+}
+
+    /* .calculate{
+    color: #fff;
+    background: #337ab7;
+    padding: 7px;
+    margin-left: 70%;
+    } */
+    input{
+      text-align: center;
+      font-size: 25px;
+      width: 25%;
+      height: 35px;
+      border-radius: 10px;
+    }
+    button{
+      border-radius: 10px;
+    }
+    .btn {
+      background-color: DodgerBlue;
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      margin-left: 70%;
+    }
+
+    </style>
+</head>
+<body>
+  
+    <div class="frm">
+        <h1>BMI CALCULATOR</h1>
+        <p>Height in Foot and Inches:</p>
+        <input class="foot" type="number">
+        <input class="inc" type="number">
+        <br><br>
+        <p>Weight in Pounds:</p>
+        <input class="weight" type="number"><br><br>
+        <button class="btn"> Calculate</button>
+        <h3 class="result"></h3>
+        <p class="resultstate"></p>
+    </div>
+ 
+    <script>
+
+        var heightf = document.querySelector(".foot");
+        var heightinc = document.querySelector(".inc");
+        var weightin = document.querySelector(".weight");
+        var btn = document.querySelector(".btn");
+        var resultbmi = document.querySelector(".result");
+        var result = document.querySelector(".resultstate");
+
+        btn.addEventListener("click", ()=>{
+
+          var BMI, weight, foot, inches, total, inchesm, footm;
+
+         foot = heightf.value;
+         inches = heightinc.value;
+         weight = weightin.value;
+         kg = weight * 0.453592;
+         footm = foot * 0.3048;
+         inchesm = inches * 0.0254;
+         total = footm + inchesm;
+
+         BMI = kg/ (total * total);
+
+    
+
+          if(BMI < 18.5){
+             result.innerHTML = "You are UNDERWEIGHT!";
+        
+            }
+          else if((BMI > 18.5) && (BMI < 24.9)){
+             result.innerHTML = "Your are NORMAL WEIGHT";
+        
+             }
+           else if((BMI >= 25) && (BMI <= 29.9)){
+              result.innerHTML = "You are OVERWEIGHT! diet po pls:)";
+            }
+          else{
+             result.innerHTML = "You are OBESITY! diet po pls:)";
+            }
+
+         resultbmi.innerHTML = BMI.toFixed(2);
+   
+
+});
+    </script>
+
+</body>
+</html>
